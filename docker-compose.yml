@@ -1,0 +1,36 @@
+version: "2"
+
+services:
+#  mariadb:
+#    image: wodby/mariadb:10.1-2.3.3
+#    environment:
+#      MYSQL_ROOT_PASSWORD: password
+#      MYSQL_DATABASE: drupal
+#      MYSQL_USER: drupal
+#      MYSQL_PASSWORD: drupal
+#    volumes:
+#      - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+#      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
+
+  node:    
+    build:
+      context: ./
+    image: yginieys/loopback3
+#    environment:
+    volumes:
+      - ./:/usr/src/app2
+    ports:
+      - "3000:3000"
+
+#  pma:
+#    image: phpmyadmin/phpmyadmin
+#    environment:
+#      PMA_HOST: mariadb
+#      PMA_USER: drupal
+#      PMA_PASSWORD: drupal
+#      PHP_UPLOAD_MAX_FILESIZE: 1G
+#      PHP_MAX_INPUT_VARS: 1G
+#    labels:
+#      - 'traefik.backend=pma'
+#      - 'traefik.port=80'
+#      - 'traefik.frontend.rule=Host:pma.drupal.docker.localhost'
