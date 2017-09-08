@@ -15,4 +15,6 @@ COPY . .
 
 #VOLUME /usr/src/app
 EXPOSE 3000
+
+RUN ls -ltr /usr/src/app
 CMD [ "node", "." ]

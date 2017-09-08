@@ -15,10 +15,12 @@ services:
   node:    
     build:
       context: ./
-    image: yginieys/loopback3
+    image: yginieys/loopback
 #    environment:
     volumes:
-      - ./:/usr/src/app2
+      - ./client:/usr/src/app/client
+      - ./common:/usr/src/app/common
+      - ./server:/usr/src/app/server
     ports:
       - "3000:3000"
 
